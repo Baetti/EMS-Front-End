@@ -1,0 +1,70 @@
+<div class="d-flex">
+  <div
+    style="width: 200px; height: 90vh"
+    class="sidebar bg-primary-subtle p-3 d-flex flex-column border m-1"
+  >
+    <a routerLink="/home" class="text-dark">HOME</a>
+    <a routerLink="/users" class="text-dark">USERS</a>
+
+    <button
+      (click)="logout()"
+      type="button"
+      class="btn mt-auto text-dark fw-bolder"
+    >
+      <i class="fa-solid fa-right-from-bracket"></i>LogOut
+    </button>
+  </div>
+  <div class="dashboard p-3 w-100">
+    <div class="row">
+      <div class="col-lg-8">
+        <div
+          class="d-flex admin-panel border rounded align-items-center justify-content-center"
+          style="
+            height: 200px;
+            background-image: url('https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+          "
+        >
+          <h1
+            class="text-center text-white fs-1"
+            style="
+              font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            "
+          >
+            WELCOME <span> {{ adminName }}</span>
+          </h1>
+        </div>
+        <div class="d-flex mt-3">
+          <div class="col-lg-5 border rounded" style="height: 410px">
+            <app-inline-calendar></app-inline-calendar>
+          </div>
+
+          <div class="col-lg-1"></div>
+
+          <div class="col-lg-6 border rounded" style="height: 410px">
+            <app-chart></app-chart>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="admin-details border rounded p-2" style="height: 365px">
+          <app-edit-admin (onUpdate)="updateAdminName($event)"></app-edit-admin>
+        </div>
+        <div
+          class="random-user border rounded mt-2 p-2 align-items-center d-flex justify-content-center text-white fs-2"
+          style="
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+              'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            height: 250px;
+            background-image: url('https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+          "
+        >
+          <i class="fa-solid fa-users me-2 fs-1"></i>Employees:&nbsp;
+          <span class="ms-2">{{ totalUserCount }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
